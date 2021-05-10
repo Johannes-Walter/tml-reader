@@ -1,8 +1,28 @@
 <image>
     <rectangle>
     </rectangle>
-    <circle x_pos=2>
-        <x_pos>
-        <y_size>
+    <circle>
+        <x_pos>50<\x_pos>
+        <y_size>1000000000000000000000000000000000000000000000000000000<y_size>
+        <rectangle>
+            <rectangle>
+                <rectangle>
+                    <rectangle>
+                        <rectangle>
+                            <rectangle>
+                                <rectangle>
+                                </rectangle>
+                            </rectangle>
+                        </rectangle>
+                    </rectangle>
+                    <rectangle>
+                        <rectangle>
+                            <rectangle>
+                            </rectangle>
+                        </rectangle>
+                    </rectangle>
+                </rectangle>
+            </rectangle>
+        </rectangle>
     </circle>
 </image>
