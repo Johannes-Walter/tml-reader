@@ -1,4 +1,98 @@
-import time
+import turtle
+
+class shape():
+    def prepare(self):
+        turtle.penup()
+        turtle.setposition(self.x_pos, self.y_pos)
+        turtle.pencolor(self.border_color)
+        turtle.width(self.border_width)
+        turtle.setheading(self.angle)
+        turtle.pendown()
+        
+        
+    def draw():
+        pass
+    
+class circle(shape):
+    def __init__(self, x_pos: int, y_pos: int,
+                 radius: int,
+                 border_width: int = 1,
+                 border_color: str = "black",
+                 fill_color: str = None):
+        self.x_pos = x_pos
+        self.y_pos = y_pos - radius
+        self.radius = radius
+        self.border_width = border_width
+        self.border_color = border_color
+        self.fill_color = fill_color
+        
+        # TODO: angle löschen? wird derzeit für shape.prepare() benötigt
+        self.angle = 0
+        
+    def draw(self):
+        self.prepare()
+        if self.fill_color is not None:
+            turtle.fillcolor(self.fill_color)
+            turtle.begin_fill()
+            turtle.circle(self.radius)
+            turtle.end_fill()
+        else:
+            turtle.circle(self.radius)
+
+
+class line(shape):
+    def __init__(self, x_pos: int, y_pos: int,
+                 angle: int, length: int,
+                 border_width: int = 1,
+                 border_color: str = "black"):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.angle = angle
+        self.length = length
+        self.border_width = border_width
+        self.border_color = border_color
+
+    def draw(self):
+        self.prepare()
+        turtle.forward(self.length)
+
+
+class rectangle(shape):
+    def __init__(self,
+                 x_pos: int, y_pos: int,
+                 angle: int, 
+                 height: int, width: int,
+                 border_color: str = "black", border_width: int = 1,
+                 fill_color: str = None):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.angle = angle
+        self.height = height
+        self.width = width
+        self.border_color = border_color
+        self.border_width = border_width
+        self.fill_color = fill_color
+    
+    def draw(self):
+        self.prepare()
+        if self.fill_color is not None:
+            turtle.fillcolor(self.fill_color)
+            turtle.begin_fill()
+            
+        for _ in range(2):
+            turtle.forward(self.width)
+            turtle.left(90)
+            turtle.forward(self.height)
+            turtle.left(90)
+            
+        if self.fill_color is not None:
+            turtle.end_fill()
+
+rect = rectangle(0, 0, -45, 100, 50, fill_color="green")
+rect.draw()
+turtle.done()
+turtle.bye()
+
 class Tag():
     def find_tag(text, start: int, end: int):
         assert start <= end
@@ -68,10 +162,9 @@ def find_elements(text: str, start = 0, end = None):
         find_elements(text, tag.opening_tag_end, tag.closing_tag_start)
         
         tag = Tag.find_tag(text, tag.closing_tag_end, end)
-        #time.sleep(0.2)
     # find each pair of brackets in the given text and call find_elements
     # recursively with the content
     # print("fertig")
 
 
-read_tml("sample.tml")
+#read_tml("sample.tml")
