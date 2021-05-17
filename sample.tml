@@ -1,28 +1,14 @@
 <image>
     <rectangle>
+        <x_pos>10</x_pos>
+        <y_pos>50</y_pos>
+        <height>20</height>
+        <width>100</width>
     </rectangle>
-    <circle>
-        <x_pos>50<\x_pos>
-        <y_size>1000000000000000000000000000000000000000000000000000000<y_size>
-        <rectangle>
-            <rectangle>
-                <rectangle>
-                    <rectangle>
-                        <rectangle>
-                            <rectangle>
-                                <rectangle>
-                                </rectangle>
-                            </rectangle>
-                        </rectangle>
-                    </rectangle>
-                    <rectangle>
-                        <rectangle>
-                            <rectangle>
-                            </rectangle>
-                        </rectangle>
-                    </rectangle>
-                </rectangle>
-            </rectangle>
-        </rectangle>
-    </circle>
+    <rectangle>
+        <x_pos>500</x_pos>
+        <y_pos>50</y_pos>
+        <height>20</height>
+        <width>100</width>
+    </rectangle>
 </image>
