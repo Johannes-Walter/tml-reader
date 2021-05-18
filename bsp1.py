@@ -1,27 +1,15 @@
 import turtle
 
-<<<<<<< Updated upstream
-class shape:
-    def __init__(self):
-        self.sub_shapes = list()
-        self.x_pos = None
-        self.y_pos = None
-        self.border_color = "black"
-        self.border_width = 1
-        self.fill_color = None
-        self.angle = 0
-=======
 
 class shape:
     def __init__(self):
         self.sub_shapes=list ()
         self.x_pos=None
         self.y_pos=None
-        self.border_color="black"
+        self.border_color= "pink"
         self.border_width=1
-        self.fill_color=None
+        self.fill_color= None
         self.angle=0
->>>>>>> Stashed changes
 
     def append_shape(self, shape):
         self.sub_shapes.append ( shape )
@@ -52,32 +40,6 @@ class shape:
         else:
             raise ValueError
 
-    def set_attribute(self, attribute: str, value: str):
-        attribute = attribute.strip().lower()
-
-        if attribute in ("x_pos",):
-            self.x_pos = int(value)
-
-        elif attribute in ("y_pos",):
-            self.y_pos = int(value)
-
-        elif attribute in ("border_color",):
-            self.border_color = value
-
-        elif attribute in ("border_width",):
-            self.border_width = int(value)
-
-        elif attribute == "fill_color":
-            # TODO: überprüfen, ob value auch einer Farbe entspricht.
-            # Kann (eigentlich) auch eine (oder mehrere) Zahlen sein.
-            self.fill_color = value
-
-        elif attribute == "angle":
-            self.angle = int(value)
-
-        else:
-            raise ValueError
-
     def prepare(self):
         print ( self.__dict__ )
         turtle.penup ()
@@ -92,112 +54,6 @@ class shape:
             shape.draw ()
 
 
-<<<<<<< Updated upstream
-class image(shape):
-    def __init__(self):
-        super().__init__()
-        self.lower_left_x = 0
-        self.lower_left_y = 0
-        self.upper_right_x = 1000
-        self.upper_right_y = 1000
-        self.background_color = None
-
-    def set_attribute(self, attribute: str, value: str):
-        attribute = attribute.strip().lower()
-
-        if attribute in ("llx", "lower_left_x"):
-            self.lower_left_x = int(value)
-
-        elif attribute in ("lly", "lower_left_y"):
-            self.lower_left_y = int(value)
-
-        elif attribute in ("urx", "upper_right_x"):
-            self.upper_right_x = int(value)
-
-        elif attribute in ("ury", "upper_right_y"):
-            self.upper_right_y = int(value)
-
-        else:
-            super().set_attribute(attribute, value)
-
-    def draw(self):
-        turtle.setworldcoordinates(self.lower_left_x,
-                                   self.lower_left_y,
-                                   self.upper_right_x,
-                                   self.upper_right_y)
-        if self.background_color is not None:
-            turtle.bgcolor(self.background_color)
-        super().draw()
-        turtle.done()
-        turtle.bye()
-
-
-class circle(shape):
-    def __init__(self):
-        super().__init__()
-        self.radius = None
-
-    def set_attribute(self, attribute: str, value: str):
-        attribute = attribute.strip().lower()
-        if attribute in ("radius",):
-            self.radius = int(value)
-        else:
-            super().set_attribute(attribute, value)
-
-    def draw(self):
-        self.prepare()
-        turtle.penup()
-        turtle.setposition(self.x_pos + self.radius, self.y_pos)
-        turtle.pendown()
-        
-        if self.fill_color is not None:
-            turtle.fillcolor(self.fill_color)
-            turtle.begin_fill()
-            turtle.circle(self.radius, steps=40)
-            turtle.end_fill()
-        else:
-            turtle.circle(self.radius, steps=40)
-        super().draw()
-
-
-class line(shape):
-    def __init__(self):
-        super().__init__()
-        self.length = None
-
-    def set_attribute(self, attribute: str, value: str):
-        attribute = attribute.strip().lower()
-
-        if attribute in ("length",):
-            self.length = int(value)
-
-        else:
-            super().set_attribute(attribute, value)
-
-    def draw(self):
-        self.prepare()
-        turtle.forward(self.length)
-        super().draw()
-
-
-class rectangle(shape):
-    def __init__(self):
-        super().__init__()
-        self.height = None
-        self.width = None
-
-    def set_attribute(self, attribute: str, value: str):
-        attribute = attribute.strip().lower()
-
-        if attribute in ("height",):
-            self.height = int(value)
-
-        elif attribute in ("width",):
-            self.width = int(value)
-
-        else:
-            super().set_attribute(attribute, value)
-=======
 class image ( shape ):
     def __init__(self):
         super ().__init__ ()
@@ -239,7 +95,6 @@ class image ( shape ):
         turtle.done ()
         turtle.bye ()
 
-
 class circle ( shape ):
     def __init__(self):
         super ().__init__ ()
@@ -247,22 +102,116 @@ class circle ( shape ):
 
     def set_attribute(self, attribute: str, value: str):
         attribute=attribute.strip ().lower ()
-        if attribute in ("radius",):
+        if attribute in ("radius"):
             self.radius=int ( value )
         else:
             super ().set_attribute ( attribute, value )
 
     def draw(self):
         self.prepare ()
-        turtle.setposition ( x_pos, y_pos - radius )
-        if self.fill_color is not None:
-            turtle.fillcolor ( self.fill_color )
-            turtle.begin_fill ()
-            turtle.circle ( self.radius )
-            turtle.end_fill ()
-        else:
-            turtle.circle ( self.radius )
+
+        # Rosen und Herzballon
+
+        # Blumen Basis
+        turtle.fillcolor ( "red" )
+        turtle.begin_fill ()
+        turtle.circle ( 9, 175 )
+        turtle.circle ( 24, 111 )
+        turtle.left ( 49 )
+        turtle.circle ( 61, 44 )
+        turtle.circle ( 21, 171 )
+        turtle.right ( 25 )
+        turtle.forward ( 31 )
+        turtle.left ( 11 )
+        turtle.circle ( 31, 111 )
+        turtle.forward ( 21 )
+        turtle.left ( 41 )
+        turtle.circle ( 91, 71 )
+        turtle.circle ( 31, 151 )
+        turtle.right ( 31 )
+        turtle.forward ( 16 )
+        turtle.circle ( 81, 91 )
+        turtle.left ( 16 )
+        turtle.forward ( 46 )
+        turtle.right ( 166 )
+        turtle.forward ( 21 )
+        turtle.left ( 156 )
+        turtle.circle ( 151, 81 )
+        turtle.left ( 51 )
+        turtle.circle ( 151, 91 )
+        turtle.end_fill ()
+
+        # Blütenblatt 1
+        turtle.left ( 149 )
+        turtle.circle ( -89, 69 )
+        turtle.left ( 21 )
+        turtle.circle ( 76, 106 )
+        turtle.setheading ( 61 )
+        turtle.circle ( 80, 97 )
+        turtle.circle ( -90, 41 )
+
+        # Blütenblatt 2
+        turtle.left ( 181 )
+        turtle.circle ( 90, 41 )
+        turtle.circle ( -80, 97 )
+        turtle.setheading ( -82 )
+
+        # Grünblatt 1
+        turtle.forward ( 30.5 )
+        turtle.left ( 90.5 )
+        turtle.forward ( 25.6 )
+        turtle.left ( 44 )
+        turtle.fillcolor ( "green" )
+        turtle.begin_fill ()
+        turtle.circle ( -81, 91 )
+        turtle.right ( 89 )
+        turtle.circle ( -81, 91 )
+        turtle.end_fill ()
+        turtle.right ( 136 )
+        turtle.forward ( 61 )
+        turtle.left ( 181 )
+        turtle.forward ( 86 )
+        turtle.left ( 91 )
+        turtle.forward ( 81 )
+
+        # Grünblatt  2
+        turtle.right ( 91 )
+        turtle.right ( 44 )
+        turtle.fillcolor ( "green" )
+        turtle.begin_fill ()
+        turtle.circle ( 81, 91 )
+        turtle.left ( 89 )
+        turtle.circle ( 81, 91 )
+        turtle.end_fill ()
+        turtle.left ( 136 )
+        turtle.forward ( 61 )
+        turtle.left ( 181 )
+        turtle.forward ( 61 )
+        turtle.right ( 91 )
+        turtle.circle ( 201, 59 )
+
+        # Ballon in Herzform
+        turtle.fillcolor ( "pink" )
+        turtle.begin_fill ()
+        turtle.left ( 140 )
+        turtle.forward ( 111.65 )
+        for i in range ( 200 ):
+            turtle.right ( 1 )
+            turtle.forward ( 1 )
+        turtle.left ( 120 )
+        for i in range ( 200 ):
+            turtle.right ( 1 )
+            turtle.forward ( 1 )
+        turtle.forward ( 111.65 )
+        turtle.right ( 40 )
+
+        # Ballongriff in Rundform
+        turtle.circle ( self.radius )
+
+        turtle.end_fill ()
         super ().draw ()
+        turtle.done ()
+        turtle.bye ()
 
 
 class line ( shape ):
@@ -273,7 +222,7 @@ class line ( shape ):
     def set_attribute(self, attribute: str, value: str):
         attribute=attribute.strip ().lower ()
 
-        if attribute in ("length",):
+        if attribute in ("length"):
             self.length=int ( value )
 
         else:
@@ -281,7 +230,6 @@ class line ( shape ):
 
     def draw(self):
         self.prepare ()
-        turtle.forward ( self.length )
         super ().draw ()
 
 
@@ -302,34 +250,14 @@ class rectangle ( shape ):
 
         else:
             super ().set_attribute ( attribute, value )
->>>>>>> Stashed changes
 
     def draw(self):
-        self.prepare ()
         if self.fill_color is not None:
-<<<<<<< Updated upstream
             turtle.fillcolor(self.fill_color)
             turtle.begin_fill()
-
-        for _ in range(2):
-            turtle.forward(self.width)
-            turtle.left(90)
-            turtle.forward(self.height)
-            turtle.left(90)
-=======
-            turtle.fillcolor ( self.fill_color )
-            turtle.begin_fill ()
-
-        for _ in range ( 2 ):
-            turtle.forward ( self.width )
-            turtle.left ( 90 )
-            turtle.forward ( self.height )
-            turtle.left ( 90 )
->>>>>>> Stashed changes
-
         if self.fill_color is not None:
-            turtle.end_fill ()
-        super ().draw ()
+            turtle.end_fill()
+        super().draw()
 
 
 class Tag ():
@@ -386,7 +314,7 @@ class Tag ():
 def read_tml(file_path: str):
     # open file with file reader
     with open ( file_path ) as file:
-        # delegate evereything in the file to the find_elements-function
+        # delegate everything in the file to the find_elements-function
         # to find all children in the code
         text=file.read ()
         tag=Tag.find_tag ( text, start=0, end=len ( text ) )
@@ -405,41 +333,22 @@ def get_shape(shape_name: str):
         return line ()
     if shape_name.lower () == "image":
         return image ()
-    # print(shape_name)
     return None
 
 
 def find_elements(text: str, shape, start: int, end: int):
-    # print(start, end)
     tag=Tag.find_tag ( text, start, end )
     while tag:
         sub_shape=get_shape ( tag.tag_name )
         if sub_shape is not None:
             shape.append_shape ( sub_shape )
         else:
-<<<<<<< Updated upstream
-            shape.set_attribute(tag.tag_name,
-                                text[tag.opening_tag_end+1:
-                                     tag.closing_tag_start])
-
-        find_elements(text, sub_shape, tag.opening_tag_end, tag.closing_tag_start)
-        tag = Tag.find_tag(text, tag.closing_tag_end, end)
-=======
             shape.set_attribute ( tag.tag_name,
                                   text[tag.opening_tag_end + 1:
                                        tag.closing_tag_start] )
 
         find_elements ( text, sub_shape, tag.opening_tag_end, tag.closing_tag_start )
         tag=Tag.find_tag ( text, tag.closing_tag_end, end )
->>>>>>> Stashed changes
-    # find each pair of brackets in the given text and call find_elements
-    # recursively with the content
-    # print("fertig")
+    # suchen jedes Klammerpaar im angegebenen Text und rufen  find_elements auf, und rekursiv mit dem Inhalt
 
-
-<<<<<<< Updated upstream
-# read_tml("sample.tml")
-read_tml("beispielbild.tml")
-=======
-read_tml ( "sample.tml" )
->>>>>>> Stashed changes
+read_tml ( "herz.tml" )
