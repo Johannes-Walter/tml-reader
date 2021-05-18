@@ -1,0 +1,21 @@
+<image>
+    <rectangle>
+        <height>70</height>
+        <width>70</width>
+        <x_pos>0</x_pos>
+        <y_pos>0</y_pos>
+        <border_color>red</border_color>
+        <border_width>5</border_width>
+        <angle>45</angle>
+        <circle>
+            <radius>15</radius>
+            <border_color>blue</border_color>
+            <border_width>5</border_width>
+            <fill_color>green</fill_color>
+            <x_pos>20</x_pos>
+            <y_pos>20</y_pos>
+        </circle>
+    </rectangle>
+    <upper_right_x>100</upper_right_x>
+    <upper_right_y>100</upper_right_y>
+</image>

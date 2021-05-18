@@ -9,7 +9,7 @@ class shape:
         self.border_width = 1
         self.fill_color = None
         self.angle = 0
-        
+
     def append_shape(self, shape):
         self.sub_shapes.append(shape)
 
@@ -61,20 +61,20 @@ class image(shape):
         self.upper_right_x = 1000
         self.upper_right_y = 1000
         self.background_color = None
-    
+
     def set_attribute(self, attribute: str, value: str):
         attribute = attribute.strip().lower()
 
         if attribute in ("llx", "lower_left_x"):
             self.lower_left_x = int(value)
 
-        if attribute in ("lly", "lower_left_y"):
+        elif attribute in ("lly", "lower_left_y"):
             self.lower_left_y = int(value)
 
-        if attribute in ("urx", "upper_right_x"):
+        elif attribute in ("urx", "upper_right_x"):
             self.upper_right_x = int(value)
 
-        if attribute in ("ury", "upper_right_y"):
+        elif attribute in ("ury", "upper_right_y"):
             self.upper_right_y = int(value)
 
         else:
@@ -85,38 +85,38 @@ class image(shape):
                                    self.lower_left_y,
                                    self.upper_right_x,
                                    self.upper_right_y)
-
-        turtle.screensize(self.upper_right_y - self.lower_left_y,
-                          self.upper_right_x - self.lower_left_x)
         if self.background_color is not None:
             turtle.bgcolor(self.background_color)
         super().draw()
         turtle.done()
         turtle.bye()
-    
+
 
 class circle(shape):
     def __init__(self):
         super().__init__()
         self.radius = None
-    
+
     def set_attribute(self, attribute: str, value: str):
         attribute = attribute.strip().lower()
         if attribute in ("radius",):
             self.radius = int(value)
         else:
             super().set_attribute(attribute, value)
-        
+
     def draw(self):
         self.prepare()
-        turtle.setposition(x_pos, y_pos - radius)
+        turtle.penup()
+        turtle.setposition(self.x_pos + self.radius, self.y_pos)
+        turtle.pendown()
+        
         if self.fill_color is not None:
             turtle.fillcolor(self.fill_color)
             turtle.begin_fill()
-            turtle.circle(self.radius)
+            turtle.circle(self.radius, steps=40)
             turtle.end_fill()
         else:
-            turtle.circle(self.radius)
+            turtle.circle(self.radius, steps=40)
         super().draw()
 
 
@@ -124,7 +124,7 @@ class line(shape):
     def __init__(self):
         super().__init__()
         self.length = None
-    
+
     def set_attribute(self, attribute: str, value: str):
         attribute = attribute.strip().lower()
 
@@ -145,7 +145,7 @@ class rectangle(shape):
         super().__init__()
         self.height = None
         self.width = None
-    
+
     def set_attribute(self, attribute: str, value: str):
         attribute = attribute.strip().lower()
 
@@ -157,19 +157,19 @@ class rectangle(shape):
 
         else:
             super().set_attribute(attribute, value)
-    
+
     def draw(self):
         self.prepare()
         if self.fill_color is not None:
             turtle.fillcolor(self.fill_color)
             turtle.begin_fill()
-            
+
         for _ in range(2):
             turtle.forward(self.width)
             turtle.left(90)
             turtle.forward(self.height)
             turtle.left(90)
-            
+
         if self.fill_color is not None:
             turtle.end_fill()
         super().draw()
@@ -260,10 +260,10 @@ def find_elements(text: str, shape, start: int, end: int):
         if sub_shape is not None:
             shape.append_shape(sub_shape)
         else:
-            shape.set_attribute(tag.tag_name, 
+            shape.set_attribute(tag.tag_name,
                                 text[tag.opening_tag_end+1:
                                      tag.closing_tag_start])
-        
+
         find_elements(text, sub_shape, tag.opening_tag_end, tag.closing_tag_start)
         tag = Tag.find_tag(text, tag.closing_tag_end, end)
     # find each pair of brackets in the given text and call find_elements
@@ -271,4 +271,5 @@ def find_elements(text: str, shape, start: int, end: int):
     # print("fertig")
 
 
-read_tml("sample.tml")
+# read_tml("sample.tml")
+read_tml("beispielbild.tml")
