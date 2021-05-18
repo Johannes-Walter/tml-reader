@@ -1,11 +1,43 @@
 import turtle
 
-class shape():
+class shape:
     def __init__(self):
         self.sub_shapes = list()
+        self.x_pos = None
+        self.y_pos = None
+        self.border_color = "black"
+        self.border_width = 1
+        self.fill_color = None
+        self.angle = 0
         
     def append_shape(self, shape):
         self.sub_shapes.append(shape)
+
+    def set_attribute(self, attribute: str, value: str):
+        attribute = attribute.strip().lower()
+
+        if attribute in ("x_pos",):
+            self.x_pos = int(value)
+
+        elif attribute in ("y_pos",):
+            self.y_pos = int(value)
+
+        elif attribute in ("border_color",):
+            self.border_color = value
+
+        elif attribute in ("border_width",):
+            self.border_width = int(value)
+
+        elif attribute == "fill_color":
+            # TODO: überprüfen, ob value auch einer Farbe entspricht.
+            # Kann (eigentlich) auch eine (oder mehrere) Zahlen sein.
+            self.fill_color = value
+
+        elif attribute == "angle":
+            self.angle = int(value)
+
+        else:
+            raise ValueError
 
     def prepare(self):
         print(self.__dict__)
@@ -22,16 +54,31 @@ class shape():
 
 
 class image(shape):
-    def __init__(self, 
-                 lower_left_x: int = 0, lower_left_y: int = 0, 
-                 upper_right_x: int = 2500, upper_right_y: int = 2500,
-                 background_color: str = None):
+    def __init__(self):
         super().__init__()
-        self.lower_left_x = lower_left_x
-        self.lower_left_y = lower_left_y
-        self.upper_right_x = upper_right_x
-        self.upper_right_y = upper_right_y
-        self.background_color = background_color
+        self.lower_left_x = 0
+        self.lower_left_y = 0
+        self.upper_right_x = 1000
+        self.upper_right_y = 1000
+        self.background_color = None
+    
+    def set_attribute(self, attribute: str, value: str):
+        attribute = attribute.strip().lower()
+
+        if attribute in ("llx", "lower_left_x"):
+            self.lower_left_x = int(value)
+
+        if attribute in ("lly", "lower_left_y"):
+            self.lower_left_y = int(value)
+
+        if attribute in ("urx", "upper_right_x"):
+            self.upper_right_x = int(value)
+
+        if attribute in ("ury", "upper_right_y"):
+            self.upper_right_y = int(value)
+
+        else:
+            super().set_attribute(attribute, value)
 
     def draw(self):
         turtle.setworldcoordinates(self.lower_left_x,
@@ -49,24 +96,20 @@ class image(shape):
     
 
 class circle(shape):
-    def __init__(self, x_pos: int = None, y_pos: int = None,
-                 radius: int = None,
-                 border_width: int = 1,
-                 border_color: str = "black",
-                 fill_color: str = None):
+    def __init__(self):
         super().__init__()
-        self.x_pos = x_pos
-        self.y_pos = y_pos - radius
-        self.radius = radius
-        self.border_width = border_width
-        self.border_color = border_color
-        self.fill_color = fill_color
-        
-        # TODO: angle löschen? wird derzeit für shape.prepare() benötigt
-        self.angle = 0
+        self.radius = None
+    
+    def set_attribute(self, attribute: str, value: str):
+        attribute = attribute.strip().lower()
+        if attribute in ("radius",):
+            self.radius = int(value)
+        else:
+            super().set_attribute(attribute, value)
         
     def draw(self):
         self.prepare()
+        turtle.setposition(x_pos, y_pos - radius)
         if self.fill_color is not None:
             turtle.fillcolor(self.fill_color)
             turtle.begin_fill()
@@ -78,17 +121,18 @@ class circle(shape):
 
 
 class line(shape):
-    def __init__(self, x_pos: int = None, y_pos: int = None,
-                 angle: int = None, length: int = None,
-                 border_width: int = 1,
-                 border_color: str = "black"):
+    def __init__(self):
         super().__init__()
-        self.x_pos = x_pos
-        self.y_pos = y_pos
-        self.angle = angle
-        self.length = length
-        self.border_width = border_width
-        self.border_color = border_color
+        self.length = None
+    
+    def set_attribute(self, attribute: str, value: str):
+        attribute = attribute.strip().lower()
+
+        if attribute in ("length",):
+            self.length = int(value)
+
+        else:
+            super().set_attribute(attribute, value)
 
     def draw(self):
         self.prepare()
@@ -97,22 +141,22 @@ class line(shape):
 
 
 class rectangle(shape):
-    def __init__(self,
-                 x_pos: int = None, y_pos: int = None,
-                 angle: int = 0, 
-                 height: int = None, width: int = None,
-                 border_color: str = "black", border_width: int = 1,
-                 fill_color: str = None):
+    def __init__(self):
         super().__init__()
-        self.x_pos = x_pos
-        self.y_pos = y_pos
-        self.angle = angle
-        self.height = height
-        self.width = width
-        self.border_color = border_color
-        self.border_width = border_width
-        self.fill_color = fill_color
-        
+        self.height = None
+        self.width = None
+    
+    def set_attribute(self, attribute: str, value: str):
+        attribute = attribute.strip().lower()
+
+        if attribute in ("height",):
+            self.height = int(value)
+
+        elif attribute in ("width",):
+            self.width = int(value)
+
+        else:
+            super().set_attribute(attribute, value)
     
     def draw(self):
         self.prepare()
@@ -216,8 +260,9 @@ def find_elements(text: str, shape, start: int, end: int):
         if sub_shape is not None:
             shape.append_shape(sub_shape)
         else:
-            print(tag.tag_name, text[tag.opening_tag_end+1:tag.closing_tag_start])
-            setattr(shape, tag.tag_name, int(text[tag.opening_tag_end+1:tag.closing_tag_start]))
+            shape.set_attribute(tag.tag_name, 
+                                text[tag.opening_tag_end+1:
+                                     tag.closing_tag_start])
         
         find_elements(text, sub_shape, tag.opening_tag_end, tag.closing_tag_start)
         tag = Tag.find_tag(text, tag.closing_tag_end, end)

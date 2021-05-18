@@ -6,8 +6,10 @@
         <width>100</width>
     </rectangle>
     <rectangle>
-        <x_pos>500</x_pos>
-        <y_pos>50</y_pos>
+        <x_pos>200</x_pos>
+        <y_pos>
+            50
+        </y_pos>
         <height>20</height>
         <width>100</width>
     </rectangle>
