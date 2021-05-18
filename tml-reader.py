@@ -24,7 +24,7 @@ class shape():
 class image(shape):
     def __init__(self, 
                  lower_left_x: int = 0, lower_left_y: int = 0, 
-                 upper_right_x: int = 250, upper_right_y: int = 250,
+                 upper_right_x: int = 2500, upper_right_y: int = 2500,
                  background_color: str = None):
         super().__init__()
         self.lower_left_x = lower_left_x
@@ -38,8 +38,7 @@ class image(shape):
                                    self.lower_left_y,
                                    self.upper_right_x,
                                    self.upper_right_y)
-        
-        # TODO: Screensize stimmend machen. Viel Glück dabei.
+
         turtle.screensize(self.upper_right_y - self.lower_left_y,
                           self.upper_right_x - self.lower_left_x)
         if self.background_color is not None:
