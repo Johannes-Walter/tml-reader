@@ -11,4 +11,10 @@
         <height>20</height>
         <width>100</width>
     </rectangle>
+    <triangle>
+        <x_pos>100</x_pos>
+        <y_pos>40</y_pos>
+        <length>10</length>
+        <height>10</height>
+    </triangle>
 </image>
