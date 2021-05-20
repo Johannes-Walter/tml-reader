@@ -6,6 +6,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>0</angle>
+        <fill_color>yellow</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
@@ -14,6 +15,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>45</angle>
+        <fill_color>orange</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>-0</x_pos>
@@ -22,6 +24,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>90</angle>
+        <fill_color>red</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
@@ -30,6 +33,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>135</angle>
+        <fill_color>magenta</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
@@ -38,6 +42,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>180</angle>
+        <fill_color>purple</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
@@ -46,6 +51,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>225</angle>
+        <fill_color>blue</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
@@ -54,6 +60,7 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>270</angle>
+        <fill_color>dark green</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
@@ -62,5 +69,6 @@
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>315</angle>
+        <fill_color>light green</fill_color>
     </parallelogram>
 </image>    
