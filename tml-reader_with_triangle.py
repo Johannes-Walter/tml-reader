@@ -1,4 +1,5 @@
 import turtle
+import math
 
 
 class shape:
@@ -190,6 +191,27 @@ class triangle(shape):
 
     def draw(self):
         self.prepare()
+        if self.fill_color is not None:
+            turtle.fillcolor(self.fill_color)
+            turtle.begin_fill()
+        angle_right_corner = math.atan((self.length/2) / self.height)
+        angle_right_corner = math.degrees(angle_right_corner)
+        angle_top_corner = 2 * angle_right_corner
+        angle_top_corner = 180 - angle_top_corner
+        angle_right_corner = 180 - angle_right_corner
+        angle_top_corner = 180 - angle_top_corner
+        side_length = math.sqrt((self.length/2)**2 + (self.height**2))
+        turtle.forward(self.length)
+        turtle.left(angle_right_corner)
+        turtle.forward(side_length)
+        turtle.left(angle_top_corner)
+        turtle.forward(side_length)
+
+        if self.fill_color is not None:
+            turtle.end_fill()
+        print(angle_right_corner)
+        print(angle_top_corner)
+
         super().draw()
 
         
@@ -272,6 +294,8 @@ def get_shape(shape_name: str):
         return line()
     if shape_name.lower() == "image":
         return image()
+    if shape_name.lower() == "triangle":
+        return triangle()
     return None
 
 

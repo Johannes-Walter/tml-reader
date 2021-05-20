@@ -14,7 +14,8 @@
     <triangle>
         <x_pos>100</x_pos>
         <y_pos>40</y_pos>
-        <length>10</length>
-        <height>10</height>
+        <length>60</length>
+        <height>40</height>
+        <fill_color>green</fill_color>
     </triangle>
 </image>
