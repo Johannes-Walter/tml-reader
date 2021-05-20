@@ -1,0 +1,42 @@
+<image>
+    <line>
+        <x_pos>100</x_pos>
+        <y_pos>40</y_pos>
+        <length>200</length>
+        <angle>-90</angle>
+        <border_width>10</border_width>
+    </line>
+
+    <triangle>
+        <x_pos>100</x_pos>
+        <y_pos>40</y_pos>
+        <length>200</length>
+        <height>100</height>
+        <fill_color>light green</fill_color>
+    </triangle>
+    <triangle>
+        <x_pos>100</x_pos>
+        <y_pos>40</y_pos>
+        <length>200</length>
+        <height>100</height>
+        <angle>180</angle>
+        <fill_color>cyan</fill_color>
+    </triangle>
+    <triangle>
+        <x_pos>100</x_pos>
+        <y_pos>40</y_pos>
+        <length>200</length>
+        <height>100</height>
+        <angle>90</angle>
+        <fill_color>yellow</fill_color>
+    </triangle>
+    <triangle>
+        <x_pos>100</x_pos>
+        <y_pos>40</y_pos>
+        <length>200</length>
+        <height>100</height>
+        <angle>-90</angle>
+        <fill_color>red</fill_color>
+    </triangle>
+
+</image>
