@@ -660,7 +660,6 @@ class Triangle(Shape):
         super().draw()
 
 
-
 def get_shape(shape_name: str):
     """
     Get the shape named as Variable.
