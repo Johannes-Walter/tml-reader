@@ -6,16 +6,9 @@
         <width>100</width>
     </rectangle>
     <rectangle>
-        <x_pos>200</x_pos>
+        <x_pos>-200</x_pos>
         <y_pos>50</y_pos>
         <height>20</height>
         <width>100</width>
     </rectangle>
-    <triangle>
-        <x_pos>100</x_pos>
-        <y_pos>40</y_pos>
-        <length>60</length>
-        <height>40</height>
-        <fill_color>green</fill_color>
-    </triangle>
 </image>
