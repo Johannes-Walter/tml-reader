@@ -740,6 +740,44 @@ class Triangle(Shape):
         super().draw()
 
 
+class Parallelogram ( Shape ):
+    def __init__(self):
+        super ().__init__ ()
+        self.length=None
+        self.side_length=None
+        self.lower_right_angle=None
+
+    def set_attribute(self, attribute: str, value: str):
+        attribute=attribute.strip ().lower ()
+
+        if attribute in ("length",):
+            self.length=int ( value )
+
+        elif attribute in ("side_length",):
+            self.side_length=int ( value )
+        
+        elif attribute in ("lower_right_angle", "angle"):
+            self.lower_right_angle=int ( value )
+
+        else:
+            super ().set_attribute ( attribute, value )
+
+    def draw(self):
+        self.prepare()
+        if self.fill_color is not None:
+            turtle.fillcolor(self.fill_color)
+            turtle.begin_fill()
+        for _ in range(2):
+            turtle.forward(self.length)
+            turtle.left(self.lower_right_angle)
+            turtle.forward(self.side_length)
+            turtle.left(180-self.lower_right_angle)
+       
+        if self.fill_color is not None:
+            turtle.end_fill()
+        super().draw()
+
+
 def get_shape(shape_name: str):
     """
     Get the shape named as Variable.
@@ -767,6 +805,8 @@ def get_shape(shape_name: str):
         return RoseAndHeart()
     if shape_name.lower() == "triangle":
         return Triangle()
+    if shape_name.lower() == "parallelogram":
+        return Parallelogram()
     if shape_name.lower() == "image":
         return Image()
     return None
