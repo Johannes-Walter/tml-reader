@@ -740,27 +740,27 @@ class Triangle(Shape):
         super().draw()
 
 
-class Parallelogram ( Shape ):
+class Parallelogram (Shape):
     def __init__(self):
-        super ().__init__ ()
-        self.length=None
-        self.side_length=None
-        self.lower_right_angle=None
+        super ().__init__()
+        self.length = None
+        self.side_length = None
+        self.lower_right_angle = None
 
     def set_attribute(self, attribute: str, value: str):
-        attribute=attribute.strip ().lower ()
+        attribute=attribute.strip().lower()
 
         if attribute in ("length",):
-            self.length=int ( value )
+            self.length = int(value)
 
         elif attribute in ("side_length",):
-            self.side_length=int ( value )
+            self.side_length = int(value)
         
         elif attribute in ("lower_right_angle", "angle"):
-            self.lower_right_angle=int ( value )
+            self.lower_right_angle = int(value)
 
         else:
-            super ().set_attribute ( attribute, value )
+            super().set_attribute(attribute, value)
 
     def draw(self):
         self.prepare()
