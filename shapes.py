@@ -667,7 +667,7 @@ class Triangle(Shape):
 
     def __init__(self):
         """
-        Generate a Triangle.
+        Generate a triangle.
 
         Returns
         -------
@@ -741,28 +741,66 @@ class Triangle(Shape):
 
 
 class Parallelogram (Shape):
+    """A paralellogram shape."""
+
     def __init__(self):
-        super ().__init__()
+        """
+        Generate a paralellogram.
+
+        Returns
+        -------
+        None.
+
+        """
+        super().__init__()
         self.length = None
         self.side_length = None
         self.lower_right_angle = None
 
     def set_attribute(self, attribute: str, value: str):
-        attribute=attribute.strip().lower()
+        """
+        Try to set an given attribute to an given Value.
+
+        Parameters
+        ----------
+        attribute : str
+            Attribute to change. Should be the name of a Tag.
+        value : str
+            Value to set.
+
+        Raises
+        ------
+        ValueError
+            If there is no such Attribute, a ValueError is raised.
+
+        Returns
+        -------
+        None.
+
+        """
+        attribute = attribute.strip().lower()
 
         if attribute in ("length",):
             self.length = int(value)
 
         elif attribute in ("side_length",):
             self.side_length = int(value)
-        
-        elif attribute in ("lower_right_angle", "angle"):
+
+        elif attribute in ("lower_right_angle",):
             self.lower_right_angle = int(value)
 
         else:
             super().set_attribute(attribute, value)
 
     def draw(self):
+        """
+        Draw this paralellogram and all subshapes.
+
+        Returns
+        -------
+        None.
+
+        """
         self.prepare()
         if self.fill_color is not None:
             turtle.fillcolor(self.fill_color)
@@ -772,7 +810,7 @@ class Parallelogram (Shape):
             turtle.left(self.lower_right_angle)
             turtle.forward(self.side_length)
             turtle.left(180-self.lower_right_angle)
-       
+
         if self.fill_color is not None:
             turtle.end_fill()
         super().draw()
@@ -795,18 +833,26 @@ def get_shape(shape_name: str):
     """
     if shape_name.lower() == "circle":
         return Circle()
+
     if shape_name.lower() == "rectangle":
         return Rectangle()
+
     if shape_name.lower() == "line":
         return Line()
+
     if shape_name.lower() == "balloon":
         return Balloon()
+
     if shape_name.lower() == "rose_and_heart":
         return RoseAndHeart()
+
     if shape_name.lower() == "triangle":
         return Triangle()
+
     if shape_name.lower() == "parallelogram":
         return Parallelogram()
+
     if shape_name.lower() == "image":
         return Image()
+
     return None
