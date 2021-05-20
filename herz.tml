@@ -1,7 +1,19 @@
 <image>
-    <circle>
-        <x_pos>5</x_pos>
-        <y_pos>5</y_pos>
+    <ballon1>
+        <x_pos>300</x_pos>
+        <y_pos>300</y_pos>
+        <radius>100</radius>
+        <fill_color>red</fill_color>
+        <border_width>10</border_width>
+        <thread_angle>90</thread_angle>
+        <thread>185</thread>
+    </ballon1>
+    <ballon2>
+        <x_pos>50</x_pos>
+        <y_pos>50</y_pos>
         <radius>18</radius>
-    </circle>
+        <petal_color>red</petal_color>
+        <leaf_color>green</leaf_color>
+        <heart_color>pink</heart_color>
+    </ballon2>
 </image>

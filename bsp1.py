@@ -95,15 +95,67 @@ class image ( shape ):
         turtle.done ()
         turtle.bye ()
 
-class circle ( shape ):
+class ballon1 ( shape ):
     def __init__(self):
         super ().__init__ ()
         self.radius=None
+        self.thread =None
+        self.thread_angle=None
 
     def set_attribute(self, attribute: str, value: str):
         attribute=attribute.strip ().lower ()
         if attribute in ("radius"):
             self.radius=int ( value )
+
+        elif attribute in ("thread"):
+            self.thread =int ( value)
+
+        elif attribute in ("thread_angle"):
+            self.thread_angle =int ( value)
+
+        else:
+            super ().set_attribute ( attribute, value )
+
+    def draw(self):
+        # face
+        self.prepare ()
+
+        for i in range(4):
+            if self.fill_color is not None:
+                turtle.fillcolor ( self.fill_color )
+                turtle.begin_fill ()
+
+            turtle.circle(self.radius-15*i)
+
+            if self.fill_color is not None:
+                turtle.end_fill()
+
+        turtle.right (self.thread_angle )
+        turtle.forward( self.thread )
+        super ().draw ()
+
+
+class ballon2 ( shape ):
+    def __init__(self):
+        super ().__init__ ()
+        self.radius=None
+        self.petal_color=None
+        self.leaf_color=None
+        self.heart_color=None
+
+    def set_attribute(self, attribute: str, value: str):
+        attribute=attribute.strip ().lower ()
+        if attribute in ("radius"):
+            self.radius=int ( value )
+
+        elif attribute in ("petal_color"):
+            self.petal_color= value
+
+        elif attribute in ("leaf_color"):
+            self.leaf_color= value
+
+        elif attribute in ("heart_color"):
+            self.heart_color= value
         else:
             super ().set_attribute ( attribute, value )
 
@@ -113,8 +165,10 @@ class circle ( shape ):
         # Rosen und Herzballon
 
         # Blumen Basis
-        turtle.fillcolor ( "red" )
+
+        turtle.fillcolor ( self.petal_color )
         turtle.begin_fill ()
+
         turtle.circle ( 9, 175 )
         turtle.circle ( 24, 111 )
         turtle.left ( 49 )
@@ -161,7 +215,7 @@ class circle ( shape ):
         turtle.left ( 90.5 )
         turtle.forward ( 25.6 )
         turtle.left ( 44 )
-        turtle.fillcolor ( "green" )
+        turtle.fillcolor ( self.leaf_color)
         turtle.begin_fill ()
         turtle.circle ( -81, 91 )
         turtle.right ( 89 )
@@ -177,7 +231,7 @@ class circle ( shape ):
         # Grünblatt  2
         turtle.right ( 91 )
         turtle.right ( 44 )
-        turtle.fillcolor ( "green" )
+        turtle.fillcolor ( self.leaf_color )
         turtle.begin_fill ()
         turtle.circle ( 81, 91 )
         turtle.left ( 89 )
@@ -191,7 +245,7 @@ class circle ( shape ):
         turtle.circle ( 201, 59 )
 
         # Ballon in Herzform
-        turtle.fillcolor ( "pink" )
+        turtle.fillcolor ( self.heart_color )
         turtle.begin_fill ()
         turtle.left ( 140 )
         turtle.forward ( 111.65 )
@@ -212,6 +266,24 @@ class circle ( shape ):
         super ().draw ()
         turtle.done ()
         turtle.bye ()
+
+
+class circle ( shape ):
+    def __init__(self):
+        super ().__init__ ()
+        self.radius=None
+
+    def set_attribute(self, attribute: str, value: str):
+        attribute=attribute.strip ().lower ()
+        if attribute in ("radius"):
+            self.radius=int ( value )
+        else:
+            super ().set_attribute ( attribute, value )
+
+    def draw(self):
+        self.prepare ()
+        super ().draw ()
+
 
 
 class line ( shape ):
@@ -325,6 +397,10 @@ def read_tml(file_path: str):
 
 
 def get_shape(shape_name: str):
+    if shape_name.lower () == "ballon1":
+        return ballon1 ()
+    if shape_name.lower () == "ballon2":
+        return ballon2 ()
     if shape_name.lower () == "circle":
         return circle ()
     if shape_name.lower () == "rectangle":
