@@ -7,18 +7,18 @@ import math
 
 
 class Shape:
-    """Baseclass for shapes, contains basic functionality."""
+    """Baseclass for shapes, contains basic functionality"""
 
     def __init__(self):
         """
-        Generate a new Baseshape.
+        Generate a new Baseshape
 
-        It is useful to call this Baseobject in the init of Subclasses,
-        in order to create some Basevalues to draw the shapes.
+        It is useful to call this baseobject in the init of subclasses,
+        in order to create some basevalues to draw the shapes.
 
         Returns
         -------
-        None.
+        None
 
         """
         self.sub_shapes = list()
@@ -31,12 +31,12 @@ class Shape:
 
     def append_shape(self, shape):
         """
-        Add subshapes to this shape.
+        Add subshapes to this shape
 
         Parameters
         ----------
         shape : Shape
-            Another shape to add..
+            Another shape to add
 
         Returns
         -------
@@ -47,19 +47,19 @@ class Shape:
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given Value
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simultaneously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -93,7 +93,7 @@ class Shape:
         """
         Call this function before drawing a shape.
 
-        It will set the position and Angle of the turtle, as well as
+        It will set the position and angle of the turtle, as well as
         set the fill_color, border_color and border_width.
         Additionally, the pen is lifted and set.
 
@@ -111,7 +111,7 @@ class Shape:
 
     def draw(self):
         """
-        Standart draw call, calls all subshapes to draw.
+        Standard draw call for calling all subshapes to draw
 
         Returns
         -------
@@ -127,12 +127,12 @@ class Image(Shape):
     """
     Image-"Shape". This class contains information about the drawingboard.
 
-    I.e. how big the image should be or which backgroundcolor should be used.
+    It refers to how big the image or which backgroundcolor should be used.
     """
 
     def __init__(self):
         """
-        Generate an Image and set the standart-configuration.
+        Generate an image and set the standard-configuration
 
         Returns
         -------
@@ -148,22 +148,22 @@ class Image(Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given value.
 
-        In this variant of the Funktion only some Attributes are allowed to
+        In such case of the function only some attributes are allowed to
         be set, like 'lower_left_x'.
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -189,7 +189,7 @@ class Image(Shape):
 
     def draw(self):
         """
-        Draw the whole image with every Shape contained.
+        Draw the whole image with all shapes contained.
 
         Returns
         -------
@@ -211,11 +211,11 @@ class Image(Shape):
 
 
 class Circle(Shape):
-    """A shape for a circle."""
+    """A shape for a circle"""
 
     def __init__(self):
         """
-        Generate an Circle to draw inside the Image.
+        Generate a circle to draw with the image class.
 
         Returns
         -------
@@ -227,7 +227,7 @@ class Circle(Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given Value.
 
         Parameters
         ----------
@@ -255,7 +255,7 @@ class Circle(Shape):
 
     def draw(self):
         """
-        Draw this Circle and all subshapes.
+        Draw this circle and all subshapes
 
         Returns
         -------
@@ -299,14 +299,14 @@ class Line(Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given Value.
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
@@ -336,16 +336,15 @@ class Line(Shape):
 
         """
         self.prepare()
-        turtle.forward(self.length)
         super().draw()
 
 
 class Rectangle(Shape):
-    """A simple Rectangle-Shape."""
+    """A simple rectangle-shape."""
 
     def __init__(self):
         """
-        Generate a rectangle to draw inside the image.
+        Generate a rectangle to draw within the image class.
 
         Returns
         -------
@@ -358,19 +357,19 @@ class Rectangle(Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given value.
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -390,7 +389,7 @@ class Rectangle(Shape):
 
     def draw(self):
         """
-        Draw this Rectangle and all subshapes.
+        Draw this rectangle and all subshapes
 
         Returns
         -------
@@ -416,11 +415,11 @@ class Rectangle(Shape):
 
 
 class Balloon (Shape):
-    """A circle filled with smaller circles and a thread below it."""
+    """A circle filled with smaller circles and a thread below it"""
 
     def __init__(self):
         """
-        Generate a balloon.
+        Generate a balloon
 
         Returns
         -------
@@ -434,19 +433,19 @@ class Balloon (Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given value
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -519,14 +518,14 @@ class RoseAndHeart(Shape):
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -681,19 +680,19 @@ class Triangle(Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given value.
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -711,7 +710,7 @@ class Triangle(Shape):
 
     def draw(self):
         """
-        Draw this Triangle and all subshapes.
+        Draw this triangle and all subshapes.
 
         Returns
         -------
@@ -760,19 +759,19 @@ class Parallelogram (Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set an given attribute to an given Value.
+        Try to set a given attribute to a given value.
 
         Parameters
         ----------
         attribute : str
-            Attribute to change. Should be the name of a Tag.
+            If attribute changes, the name of a tag changes simutanously.
         value : str
-            Value to set.
+            Value shall be set.
 
         Raises
         ------
         ValueError
-            If there is no such Attribute, a ValueError is raised.
+            If there is no such attribute, a ValueError is raised.
 
         Returns
         -------
@@ -819,7 +818,7 @@ class Parallelogram (Shape):
 
 def get_shape(shape_name: str):
     """
-    Get the shape named as Variable.
+    Get the shape named as variable.
 
     Parameters
     ----------
@@ -829,7 +828,7 @@ def get_shape(shape_name: str):
     Returns
     -------
     TYPE
-        A shape, None if there is no matching shape.
+        A shape comes none, if there is no matching shape.
 
     """
     if shape_name.lower() == "circle":
@@ -844,7 +843,7 @@ def get_shape(shape_name: str):
     if shape_name.lower() == "balloon":
         return Balloon()
 
-    if shape_name.lower() == "roseandheart":
+    if shape_name.lower() == "rose_and_heart":
         return RoseAndHeart()
 
     if shape_name.lower() == "triangle":
