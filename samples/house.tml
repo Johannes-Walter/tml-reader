@@ -1,1 +1,31 @@
-
+<image>
+    <parallelogram>
+        <x_pos>-300</x_pos>
+        <y_pos>0</y_pos>
+        <length>300</length>
+        <side_length>200</side_length>
+        <lower_right_angle>45</lower_right_angle>
+        <fill_color>red</fill_color>
+    </parallelogram>
+    <parallelogram>
+        <x_pos>-18</x_pos>
+        <y_pos>0</y_pos>
+        <length>300</length>
+        <side_length>200</side_length>
+        <lower_right_angle>135</lower_right_angle>
+        <fill_color>red</fill_color>
+    </parallelogram>
+    <rectangle>
+        <x_pos>-250</x_pos>
+        <y_pos>-400</y_pos>
+        <height>400</height>
+        <width>500</width>
+        <fill_color>brown</fill_color>
+    </rectangle>
+    <line>
+        <x_pos>-18</x_pos>
+        <y_pos>-400</y_pos>
+        <length>400</length>
+        <angle>90</angle>
+    </line>
+</image>

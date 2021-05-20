@@ -336,6 +336,7 @@ class Line(Shape):
 
         """
         self.prepare()
+        turtle.forward(self.length)
         super().draw()
 
 
@@ -843,7 +844,7 @@ def get_shape(shape_name: str):
     if shape_name.lower() == "balloon":
         return Balloon()
 
-    if shape_name.lower() == "rose_and_heart":
+    if shape_name.lower() == "roseandheart":
         return RoseAndHeart()
 
     if shape_name.lower() == "triangle":

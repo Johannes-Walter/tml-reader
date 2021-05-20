@@ -209,6 +209,7 @@ def __find_elements(text: str, shape, start: int, end: int):
                         tag.closing_tag_start)
         tag = Tag.find_tag(text, tag.closing_tag_end, end)
 
+
 def draw_tml(file_path: str):
     """
     Draw the image contained in the given file.
@@ -252,4 +253,7 @@ def is_file_valid(file_path: str) -> bool:
 
 
 if __name__ == "__main__":
-    draw_tml("samples//sample.tml")
+    #draw_tml("samples//lotus.tml")
+    #draw_tml("samples//sample.tml")
+    draw_tml("samples//heart.tml")
+    #draw_tml("samples//house.tml")
