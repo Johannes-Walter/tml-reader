@@ -34,5 +34,4 @@ Last but not the least, a function of “get_shape” is vital for getting indiv
 2. The second part TML file comprise the standard Markup Language structure with parent and children hierarchy.  The names of each sub-shapes will be given here as attributes, along with the given variables in each function. The variables can be changed at will, as the script maintains unchangeable as what we design for. 
 
 3. The third part renderer generates a graphic from the script with the help of turtle function and by reading variables in TML file. In addition, the renderer function is a program for the visualization of Markup Language and Scalable Vector Graphics. It allows to play back content streamed with the player from the server and to operate the player with a Digital Media Controller device that is connected via the network. In our case, the renderer shows as “output_graphics” in the folder.  
-![image](https://user-images.githubusercontent.com/58794164/119045967-6ab26b00-b9bc-11eb-9356-8c254fba943a.png)
 
