@@ -377,7 +377,7 @@ class Rectangle(Shape):
 
         """
         attribute = attribute.strip().lower()
-        
+
         if attribute in ("height",):
             self.height = int(value)
 
@@ -414,43 +414,72 @@ class Rectangle(Shape):
         super().draw()
 
 
-class Balloon ( Shape ):
+class Balloon (Shape):
+    """A circle filled with smaller circles and a thread below it."""
+
     def __init__(self):
-        super ().__init__ ()
-        self.radius=None
-        self.thread =None
-        self.thread_angle=None
-
-    def set_attribute(self, attribute: str, value: str):
-        attribute=attribute.strip ().lower ()
-        if attribute in ("radius"):
-            self.radius=int ( value )
-
-        elif attribute in ("thread"):
-            self.thread =int ( value)
-
-        elif attribute in ("thread_angle"):
-            self.thread_angle =int ( value)
-
-        else:
-            super ().set_attribute ( attribute, value )
-
-    def draw(self):
         """
-        
+        Generate a balloon.
 
         Returns
         -------
         None.
 
         """
-        # face
-        self.prepare ()
+        super().__init__()
+        self.radius = None
+        self.thread = None
+        self.thread_angle = None
+
+    def set_attribute(self, attribute: str, value: str):
+        """
+        Try to set an given attribute to an given Value.
+
+        Parameters
+        ----------
+        attribute : str
+            Attribute to change. Should be the name of a Tag.
+        value : str
+            Value to set.
+
+        Raises
+        ------
+        ValueError
+            If there is no such Attribute, a ValueError is raised.
+
+        Returns
+        -------
+        None.
+
+        """
+        attribute = attribute.strip().lower()
+        if attribute in ("radius",):
+            self.radius = int(value)
+
+        elif attribute in ("thread",):
+            self.thread = int(value)
+
+        elif attribute in ("thread_angle",):
+            self.thread_angle = int(value)
+
+        else:
+            super().set_attribute(attribute, value)
+
+    def draw(self):
+        """
+        Draw this Balloon and all subshapes.
+
+        Returns
+        -------
+        None.
+
+        """
+        self.prepare()
 
         for i in range(4):
             if self.fill_color is not None:
-                turtle.fillcolor ( self.fill_color )
-                turtle.begin_fill ()
+                turtle.fillcolor(self.fill_color)
+                turtle.begin_fill()
 
             turtle.circle(self.radius-15 * i)
 
@@ -458,149 +487,219 @@ class Balloon ( Shape ):
                 turtle.end_fill()
 
         turtle.right(self.thread_angle)
-        turtle.forward( self.thread )
-        super ().draw ()
+        turtle.forward(self.thread)
+        super().draw()
 
 
-class Rose_and_heart ( Shape ):
+class RoseAndHeart(Shape):
+    """A Rose with a heart below it."""
+
     def __init__(self):
-        super ().__init__ ()
-        self.radius=None
-        self.petal_color=None
-        self.leaf_color=None
-        self.heart_color=None
+        """
+        Generate a rose and a heart.
+
+        This shape is not size-adjustable.
+
+        Returns
+        -------
+        None.
+
+        """
+        super().__init__()
+        self.radius = None
+        self.petal_color = None
+        self.leaf_color = None
+        self.heart_color = None
 
     def set_attribute(self, attribute: str, value: str):
-        attribute=attribute.strip ().lower ()
-        if attribute in ("radius"):
-            self.radius=int ( value )
+        """
+        Try to set an given attribute to an given Value.
 
-        elif attribute in ("petal_color"):
-            self.petal_color= value
+        Parameters
+        ----------
+        attribute : str
+            Attribute to change. Should be the name of a Tag.
+        value : str
+            Value to set.
 
-        elif attribute in ("leaf_color"):
-            self.leaf_color= value
+        Raises
+        ------
+        ValueError
+            If there is no such Attribute, a ValueError is raised.
 
-        elif attribute in ("heart_color"):
-            self.heart_color= value
+        Returns
+        -------
+        None.
+
+        """
+        attribute = attribute.strip().lower()
+        if attribute in ("radius",):
+            self.radius = int(value)
+
+        elif attribute in ("petal_color",):
+            self.petal_color = value
+
+        elif attribute in ("leaf_color",):
+            self.leaf_color = value
+
+        elif attribute in ("heart_color",):
+            self.heart_color = value
         else:
-            super ().set_attribute ( attribute, value )
+            super().set_attribute(attribute, value)
 
     def draw(self):
-        self.prepare ()
+        """
+        Draw this rose and heart and all subshapes.
+
+        Returns
+        -------
+        None.
+
+        """
+        self.prepare()
 
         # Rosen und Herzballon
 
         # Blumen Basis
 
-        turtle.fillcolor ( self.petal_color )
-        turtle.begin_fill ()
+        turtle.fillcolor(self.petal_color)
+        turtle.begin_fill()
 
-        turtle.circle ( 9, 175 )
-        turtle.circle ( 24, 111 )
-        turtle.left ( 49 )
-        turtle.circle ( 61, 44 )
-        turtle.circle ( 21, 171 )
-        turtle.right ( 25 )
-        turtle.forward ( 31 )
-        turtle.left ( 11 )
-        turtle.circle ( 31, 111 )
-        turtle.forward ( 21 )
-        turtle.left ( 41 )
-        turtle.circle ( 91, 71 )
-        turtle.circle ( 31, 151 )
-        turtle.right ( 31 )
-        turtle.forward ( 16 )
-        turtle.circle ( 81, 91 )
-        turtle.left ( 16 )
-        turtle.forward ( 46 )
-        turtle.right ( 166 )
-        turtle.forward ( 21 )
-        turtle.left ( 156 )
-        turtle.circle ( 151, 81 )
-        turtle.left ( 51 )
-        turtle.circle ( 151, 91 )
-        turtle.end_fill ()
+        turtle.circle(9, 175)
+        turtle.circle(24, 111)
+        turtle.left(49)
+        turtle.circle(61, 44)
+        turtle.circle(21, 171)
+        turtle.right(25)
+        turtle.forward(31)
+        turtle.left(11)
+        turtle.circle(31, 111)
+        turtle.forward(21)
+        turtle.left(41)
+        turtle.circle(91, 71)
+        turtle.circle(31, 151)
+        turtle.right(31)
+        turtle.forward(16)
+        turtle.circle(81, 91)
+        turtle.left(16)
+        turtle.forward(46)
+        turtle.right(166)
+        turtle.forward(21)
+        turtle.left(156)
+        turtle.circle(151, 81)
+        turtle.left(51)
+        turtle.circle(151, 91)
+        turtle.end_fill()
 
         # Blütenblatt 1
-        turtle.left ( 149 )
-        turtle.circle ( -89, 69 )
-        turtle.left ( 21 )
-        turtle.circle ( 76, 106 )
-        turtle.setheading ( 61 )
-        turtle.circle ( 80, 97 )
-        turtle.circle ( -90, 41 )
+        turtle.left(149)
+        turtle.circle(-89, 69)
+        turtle.left(21)
+        turtle.circle(76, 106)
+        turtle.setheading(61)
+        turtle.circle(80, 97)
+        turtle.circle(-90, 41)
 
         # Blütenblatt 2
-        turtle.left ( 181 )
-        turtle.circle ( 90, 41 )
-        turtle.circle ( -80, 97 )
-        turtle.setheading ( -82 )
+        turtle.left(181)
+        turtle.circle(90, 41)
+        turtle.circle(-80, 97)
+        turtle.setheading(-82)
 
         # Grünblatt 1
-        turtle.forward ( 30.5 )
-        turtle.left ( 90.5 )
-        turtle.forward ( 25.6 )
-        turtle.left ( 44 )
-        turtle.fillcolor ( self.leaf_color)
-        turtle.begin_fill ()
-        turtle.circle ( -81, 91 )
-        turtle.right ( 89 )
-        turtle.circle ( -81, 91 )
-        turtle.end_fill ()
-        turtle.right ( 136 )
-        turtle.forward ( 61 )
-        turtle.left ( 181 )
-        turtle.forward ( 86 )
-        turtle.left ( 91 )
-        turtle.forward ( 81 )
+        turtle.forward(30.5)
+        turtle.left(90.5)
+        turtle.forward(25.6)
+        turtle.left(44)
+        turtle.fillcolor(self.leaf_color)
+        turtle.begin_fill()
+        turtle.circle(-81, 91)
+        turtle.right(89)
+        turtle.circle(-81, 91)
+        turtle.end_fill()
+        turtle.right(136)
+        turtle.forward(61)
+        turtle.left(181)
+        turtle.forward(86)
+        turtle.left(91)
+        turtle.forward(81)
 
         # Grünblatt  2
-        turtle.right ( 91 )
-        turtle.right ( 44 )
-        turtle.fillcolor ( self.leaf_color )
-        turtle.begin_fill ()
-        turtle.circle ( 81, 91 )
-        turtle.left ( 89 )
-        turtle.circle ( 81, 91 )
-        turtle.end_fill ()
-        turtle.left ( 136 )
-        turtle.forward ( 61 )
-        turtle.left ( 181 )
-        turtle.forward ( 61 )
-        turtle.right ( 91 )
-        turtle.circle ( 201, 59 )
+        turtle.right(91)
+        turtle.right(44)
+        turtle.fillcolor(self.leaf_color)
+        turtle.begin_fill()
+        turtle.circle(81, 91)
+        turtle.left(89)
+        turtle.circle(81, 91)
+        turtle.end_fill()
+        turtle.left(136)
+        turtle.forward(61)
+        turtle.left(181)
+        turtle.forward(61)
+        turtle.right(91)
+        turtle.circle(201, 59)
 
         # Ballon in Herzform
-        turtle.fillcolor ( self.heart_color )
-        turtle.begin_fill ()
-        turtle.left ( 140 )
-        turtle.forward ( 111.65 )
-        for i in range ( 200 ):
-            turtle.right ( 1 )
-            turtle.forward ( 1 )
-        turtle.left ( 120 )
-        for i in range ( 200 ):
-            turtle.right ( 1 )
-            turtle.forward ( 1 )
-        turtle.forward ( 111.65 )
-        turtle.right ( 40 )
+        turtle.fillcolor(self.heart_color)
+        turtle.begin_fill()
+        turtle.left(140)
+        turtle.forward(111.65)
+        for i in range(200):
+            turtle.right(1)
+            turtle.forward(1)
+        turtle.left(120)
+        for i in range(200):
+            turtle.right(1)
+            turtle.forward(1)
+        turtle.forward(111.65)
+        turtle.right(40)
 
         # Ballongriff in Rundform
-        turtle.circle ( self.radius )
+        turtle.circle(self.radius)
 
-        turtle.end_fill ()
-        super ().draw ()
+        turtle.end_fill()
+        super().draw()
 
 
 class Triangle(Shape):
+    """A isosceles triangle."""
+
     def __init__(self):
+        """
+        Generate a Triangle.
+
+        Returns
+        -------
+        None.
+
+        """
         super().__init__()
         self.length = None
         self.height = None
 
     def set_attribute(self, attribute: str, value: str):
-        attribute=attribute.strip ().lower ()
+        """
+        Try to set an given attribute to an given Value.
+
+        Parameters
+        ----------
+        attribute : str
+            Attribute to change. Should be the name of a Tag.
+        value : str
+            Value to set.
+
+        Raises
+        ------
+        ValueError
+            If there is no such Attribute, a ValueError is raised.
+
+        Returns
+        -------
+        None.
+
+        """
+        attribute = attribute.strip().lower()
         print(value)
         if attribute in ("length",):
             self.length = int(value)
@@ -609,34 +708,15 @@ class Triangle(Shape):
         else:
             super().set_attribute(attribute, value)
 
-    # def draw(self):
-    #     self.prepare()
-    #     if self.fill_color is not None:
-    #         turtle.fillcolor(self.fill_color)
-    #         turtle.begin_fill()
-    #     angle_right_corner = math.atan((self.length/2) / self.height)
-    #     angle_right_corner = math.degrees(angle_right_corner)
-    #     angle_top_corner = 2 * angle_right_corner
-    #     angle_top_corner = 180 - angle_top_corner
-    #     angle_right_corner = 180 - angle_right_corner
-    #     angle_top_corner = 180 - angle_top_corner
-    #     side_length = math.sqrt((self.length/2)**2 + (self.height**2))
-    #     turtle.forward(self.length)
-    #     turtle.left(angle_right_corner)
-    #     turtle.forward(side_length)
-    #     turtle.left(angle_top_corner)
-    #     turtle.forward(side_length)
-    #     turtle.left(angle_right_corner)
-    #     turtle.forward(self.length)
-
-    #     if self.fill_color is not None:
-    #         turtle.end_fill()
-    #     print(angle_right_corner)
-    #     print(angle_top_corner)
-
-    #     super().draw()
-
     def draw(self):
+        """
+        Draw this Triangle and all subshapes.
+
+        Returns
+        -------
+        None.
+
+        """
         self.prepare()
         if self.fill_color is not None:
             turtle.fillcolor(self.fill_color)
@@ -672,7 +752,7 @@ def get_shape(shape_name: str):
     Returns
     -------
     TYPE
-        A shape, None if .
+        A shape, None if there is no matching shape.
 
     """
     if shape_name.lower() == "circle":
@@ -684,7 +764,7 @@ def get_shape(shape_name: str):
     if shape_name.lower() == "balloon":
         return Balloon()
     if shape_name.lower() == "rose_and_heart":
-        return Rose_and_heart()
+        return RoseAndHeart()
     if shape_name.lower() == "triangle":
         return Triangle()
     if shape_name.lower() == "image":
