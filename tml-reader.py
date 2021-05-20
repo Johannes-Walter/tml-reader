@@ -51,13 +51,13 @@ class Tag():
             A tag-object containing all information or
             None, if no tag is found.
         """
-        # Check if the end is after the beginnig
+        # check if the end is after the beginnig
         assert start <= end
 
         tag = Tag()
 
-        # if there is no opening tag, there will be an error.
-        # we will pass an "none" for no tag.
+        # if there is no opening tag, there will be an error
+        # we will pass an "none" for no tag
         try:
             tag.__find_opening_tag(text, start, end)
         except ValueError:
@@ -89,7 +89,7 @@ class Tag():
             The tag which was worked on.
 
         """
-        # Find the index of the starting and closing tag & save them
+        # find the index of the starting and closing tag and save them
         self.opening_tag_start = text.index("<", start, end)
         self.opening_tag_end = text.index(">", self.opening_tag_start, end)
 
@@ -122,9 +122,9 @@ class Tag():
         closing_tag = f"</{self.tag_name}>"
 
         level = 0
-        # scrutinize the text, looking for opening and closing tags.
-        # if an opening tag is found, level is increased by one,
-        # if it is an closing tag, it is decreased.
+        # scrutinize the text, looking for opening and closing tags
+        # if an opening tag is found, the level will increase to 1
+        # if it is a closing tag, the level will decrease
         for index in range(start, end):
             if text.startswith(opening_tag, index):
                 level += 1
@@ -195,23 +195,19 @@ def __find_elements(text: str, shape, start: int, end: int):
         sub_shape = shapes.get_shape(tag.tag_name)
         if sub_shape is not None:
             shape.append_shape(sub_shape)
-        # if it is no shape, try the tag as attribute
-        # this may throw an Error, if the found tag is not valid
+        # if there is no shape, try to check the tag as attribute which belongs to shape
+        # this may appear an error, if the found tag is not valid
         else:
             shape.set_attribute(tag.tag_name,
                                 text[tag.opening_tag_end + 1:
                                      tag.closing_tag_start])
 
-        # find the next tag, beginning the search at the end of the
-        # current tag.
+        # find the next tag, start to search at the end of the current tag
         __find_elements(text,
                         sub_shape,
                         tag.opening_tag_end,
                         tag.closing_tag_start)
         tag = Tag.find_tag(text, tag.closing_tag_end, end)
-    # suchen jedes Klammerpaar im angegebenen Text und rufen find_elements auf
-    # und rekursiv mit dem Inhalt
-
 
 def draw_tml(file_path: str):
     """
