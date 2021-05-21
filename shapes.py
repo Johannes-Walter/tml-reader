@@ -335,6 +335,7 @@ class Line(Shape):
 
         """
         self.prepare()
+        turtle.forward(self.length)
         super().draw()
 
 
