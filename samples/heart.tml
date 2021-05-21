@@ -5,6 +5,7 @@
         <radius>100</radius>
         <fill_color>red</fill_color>
         <border_width>10</border_width>
+        <border_color>pink</border_color>
         <thread_angle>90</thread_angle>
         <thread>185</thread>
     </balloon>
