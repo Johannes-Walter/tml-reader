@@ -1,16 +1,16 @@
 <image>
      <parallelogram>
-        <x_pos>0</x_pos>
+        <x_pos>10</x_pos>
         <y_pos>0</y_pos>
         <length>120</length>
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>0</angle>
-        <fill_color>yellow</fill_color>
+        <fill_color>black</fill_color>
     </parallelogram>
     <parallelogram>
         <x_pos>0</x_pos>
-        <y_pos>0</y_pos>
+        <y_pos>-25</y_pos>
         <length>120</length>
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
@@ -20,7 +20,7 @@
     <parallelogram>
         <x_pos>-0</x_pos>
         <y_pos>0</y_pos>
-        <length>120</length>
+        <length>300</length>
         <side_length>90</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>90</angle>
@@ -30,7 +30,7 @@
         <x_pos>0</x_pos>
         <y_pos>0</y_pos>
         <length>120</length>
-        <side_length>90</side_length>
+        <side_length>500</side_length>
         <lower_right_angle>45</lower_right_angle>
         <angle>135</angle>
         <fill_color>magenta</fill_color>
