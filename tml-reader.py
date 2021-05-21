@@ -255,6 +255,6 @@ def is_file_valid(file_path: str) -> bool:
 if __name__ == "__main__":
     #draw_tml("samples//lotus.tml")
     #draw_tml("samples//sample.tml")
-    draw_tml("samples//heart.tml")
+    #draw_tml("samples//heart.tml")
     #draw_tml("samples//house.tml")
-    #draw_tml("samples//triangle.tml")
+    draw_tml("samples//triangle.tml")
