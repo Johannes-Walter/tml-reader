@@ -1,7 +1,7 @@
 <image>
     <balloon>
-        <x_pos>300</x_pos>
-        <y_pos>300</y_pos>
+        <x_pos>200</x_pos>
+        <y_pos>200</y_pos>
         <radius>100</radius>
         <fill_color>red</fill_color>
         <border_width>10</border_width>
@@ -10,8 +10,8 @@
         <thread>185</thread>
     </balloon>
     <rose_and_heart>
-        <x_pos>50</x_pos>
-        <y_pos>50</y_pos>
+        <x_pos>-100</x_pos>
+        <y_pos>100</y_pos>
         <radius>18</radius>
         <petal_color>red</petal_color>
         <leaf_color>green</leaf_color>
