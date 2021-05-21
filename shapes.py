@@ -7,11 +7,11 @@ import math
 
 
 class Shape:
-    """Baseclass for shapes, contains basic functionality"""
+    """Baseclass for shapes, contains basic functionality."""
 
     def __init__(self):
         """
-        Generate a new Baseshape
+        Generate a new Baseshape.
 
         It is useful to call this baseobject in the init of subclasses,
         in order to create some basevalues to draw the shapes.
@@ -31,7 +31,7 @@ class Shape:
 
     def append_shape(self, shape):
         """
-        Add subshapes to this shape
+        Add subshapes to this shape.
 
         Parameters
         ----------
@@ -47,7 +47,7 @@ class Shape:
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set a given attribute to a given Value
+        Try to set a given attribute to a given Value.
 
         Parameters
         ----------
@@ -111,14 +111,13 @@ class Shape:
 
     def draw(self):
         """
-        Standard draw call for calling all subshapes to draw
+        Standart draw call for calling all subshapes to draw.
 
         Returns
         -------
         None.
 
         """
-        print(self.__dict__)
         for shape in self.sub_shapes:
             shape.draw()
 
@@ -132,7 +131,7 @@ class Image(Shape):
 
     def __init__(self):
         """
-        Generate an image and set the standard-configuration
+        Generate an image and set the standard-configuration.
 
         Returns
         -------
@@ -211,7 +210,7 @@ class Image(Shape):
 
 
 class Circle(Shape):
-    """A shape for a circle"""
+    """A shape for a circle."""
 
     def __init__(self):
         """
@@ -255,7 +254,7 @@ class Circle(Shape):
 
     def draw(self):
         """
-        Draw this circle and all subshapes
+        Draw this circle and all subshapes.
 
         Returns
         -------
@@ -389,7 +388,7 @@ class Rectangle(Shape):
 
     def draw(self):
         """
-        Draw this rectangle and all subshapes
+        Draw this rectangle and all subshapes.
 
         Returns
         -------
@@ -415,11 +414,11 @@ class Rectangle(Shape):
 
 
 class Balloon (Shape):
-    """A circle filled with smaller circles and a thread below it"""
+    """A circle filled with smaller circles and a thread below it."""
 
     def __init__(self):
         """
-        Generate a balloon
+        Generate a balloon.
 
         Returns
         -------
@@ -433,7 +432,7 @@ class Balloon (Shape):
 
     def set_attribute(self, attribute: str, value: str):
         """
-        Try to set a given attribute to a given value
+        Try to set a given attribute to a given value.
 
         Parameters
         ----------
@@ -452,6 +451,7 @@ class Balloon (Shape):
         None.
 
         """
+        print(attribute, value)
         attribute = attribute.strip().lower()
         if attribute in ("radius",):
             self.radius = int(value)

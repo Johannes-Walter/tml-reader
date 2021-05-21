@@ -257,3 +257,4 @@ if __name__ == "__main__":
     #draw_tml("samples//sample.tml")
     draw_tml("samples//heart.tml")
     #draw_tml("samples//house.tml")
+    #draw_tml("samples//triangle.tml")
